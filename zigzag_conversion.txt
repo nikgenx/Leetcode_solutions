@@ -1,0 +1,32 @@
+class Solution {
+public:
+    string convert(string s, int numRows) {
+        int initial_jump = numRows+(numRows-2);
+        string res="";
+        int dia=0,jump;
+        if(numRows==1){
+            return s;
+        }
+        for(int i=0;i<numRows;i++){
+            jump=i;
+            if(i==0 or i==numRows-1){
+                while(jump<s.size()){
+                    res+=s[jump];
+                    jump+=initial_jump;
+                }
+            }
+            else{
+                while(jump<s.size()){
+                    res+=s[jump];
+                    jump+=(initial_jump-(dia+2));
+                    if(jump>=s.size())
+                        break;
+                    res+=s[jump];
+                    jump+=(dia+2);
+                }
+                dia+=2;
+            }
+        }
+        return res;
+    }
+};

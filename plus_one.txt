@@ -1,0 +1,24 @@
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        vector<int> temp;
+        int sum=1,i=digits.size()-1;
+        while(i>=0){
+            if(sum>0){
+                sum+=digits[i];
+                digits[i]=sum%10;
+                sum/=10;
+            }
+            i--;
+            if(sum==0 and i>=-1){
+                return digits;
+            }
+        }
+        if(sum>0){
+            temp.push_back(sum);
+            for(i=0;i<digits.size();i++)
+                temp.push_back(digits[i]);
+        }
+        return temp;
+    }
+};

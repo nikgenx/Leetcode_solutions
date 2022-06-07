@@ -1,0 +1,50 @@
+class Solution {
+public:
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        vector<vector<int>> result;
+        vector<int> temp;
+        recur(0,result,candidates,temp,target);
+        return result;
+    }
+    void recur(int i,vector<vector<int>>& result,vector<int>& candidates,vector<int>& temp,int target){
+        if(target<0){
+            return;}
+        if(target==0){
+            result.push_back(temp);
+            return;
+        }
+        if(i==candidates.size())
+            return;
+        recur(i+1,result,candidates,temp,target);
+        temp.push_back(candidates[i]);
+        recur(i,result,candidates,temp,target-candidates[i]);
+        temp.pop_back();
+        
+        return;
+    }
+}; 
+class Solution {
+public:
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        vector<vector<int>> result;
+        vector<int> temp;
+        recur(0,result,candidates,temp,target);
+        return result;
+    }
+    void recur(int i,vector<vector<int>>& result,vector<int>& candidates,vector<int>& temp,int target){
+        if(target<0){
+            return;}
+        if(target==0){
+            result.push_back(temp);
+            return;
+        }
+        if(i==candidates.size())
+            return;
+        recur(i+1,result,candidates,temp,target);
+        temp.push_back(candidates[i]);
+        recur(i,result,candidates,temp,target-candidates[i]);
+        temp.pop_back();
+        
+        return;
+    }
+}; 

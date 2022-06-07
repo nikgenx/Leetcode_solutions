@@ -1,0 +1,30 @@
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        int count=0; //for every element of needle
+        int index,next=-1; // next is for next element for ex "mississippi" and we are searching "issip" in that case after searching issi it starts from next ith index
+        if(needle.size()==0)
+            return 0;
+        for(int i=0;i<haystack.size();i++){
+            if(haystack[i]==needle[count]){
+                if(count==0){
+                    index=i;
+                    count+=1;
+                }
+                else 
+                    count+=1;
+                if(haystack[i+1]==needle[0] and next==-1)
+                    next=i;
+            }
+            else{
+                if(next!=-1)
+                    i=next;
+                next=-1;
+                count=0;
+            }
+            if(count==needle.size())
+                    return index;
+        }
+        return -1;
+    }
+};
